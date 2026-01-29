@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Quiz app</title>
+    </head>
+
+    <body>
+        <h1>Welcome to the Quiz!</h1>
+
+        <div>
+            <p id="QuestionText"></p>
+        </div>
+        <div id="OptionContainer">
+        </div>
+        
+        <button>Submit</button>
+        <script src="data.js"></script>
+        <script>
+            let currentQues = 0;
+            let score = 0; // track correct answers
+            const questionText = document.getElementById("QuestionText");
+            const optionsContainer = document.getElementById("OptionContainer");
+            const submitButton = document.querySelector("button");
+
+            function getQuestion() {
+                const data = quizData[currentQues];
+                questionText.textContent = data.question;
+                optionsContainer.innerHTML = "";
+
+                // create options dynamically
+                Object.entries(data).forEach(([key, value]) => {
+                    if (["a", "b", "c", "d"].includes(key)) {
+                        const div = document.createElement("div");
+
+                        const input = document.createElement("input");
+                        input.type = "radio";
+                        input.name = "option";
+                        input.id = key;
+                        input.value = key;
+
+                        const label = document.createElement("label");
+                        label.htmlFor = key;
+                        label.textContent = value;
+
+                        div.appendChild(input);
+                        div.appendChild(label);
+                        optionsContainer.appendChild(div);
+                    }
+                });
+            }
+
+            submitButton.addEventListener("click", () => {
+                const selected = document.querySelector('input[name="option"]:checked');
+
+                if (!selected) {
+                    alert("Please select an option!");
+                    return;
+                }
+
+                const userAnswer = selected.value;
+                const correctAnswer = quizData[currentQues].correct;
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+
+                currentQues++;
+
+                if (currentQues < quizData.length) {
+                    getQuestion();
+                } else {
+                    document.body.innerHTML = `<h1>You scored ${score}/${quizData.length}!</h1>`;
+                }
+            });
+
+            getQuestion(); // Load first question
+     </script>
+    </body>
+</html>

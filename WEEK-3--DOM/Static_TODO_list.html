@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title>replit</title>
+	  <link href="style.css" rel="stylesheet" type="text/css" />
+      <style>
+        .todo{
+            background-color: bisque;
+
+          }
+
+      </style>
+      
+	</head>
+	
+	<body >
+			<h1>Todo list</h1>
+		 <div>  <!--Parent Div -->
+			<div id="todo-1"style="display:flex;">
+				<h4>1. Take class</h4>
+				<button onclick="DeleteTodo(1)">Delete</button>
+			</div>
+			<div id="todo-2"style="display:flex;">
+				<h4>2. Go out to eat</h4>
+				<button onclick="DeleteTodo(2)">Delete</button>
+			</div>
+			<div id="todo-3"style="display:flex";>
+				<h4>3.Go to gym</h4>
+				<button onclick="DeleteTodo(3)">Delete</button>
+			</div>
+			
+		</div>
+	  
+	  <div>
+	    <input type="text" placeholder="Add your Todo here"></input>
+	    <button onclick="addTodo()">Add Todo</button>
+	  </div>
+	  <script>
+       function DeleteTodo(index){
+		const element=document.getElementById("todo-"+index);
+		element.parentNode.removeChild(element);
+	   }
+
+	    // const divEl=document.createElement("div");
+        // divel.innerHTML="4.Call Shubhrata";
+		// const ParentEl=document.querySelector("body");
+		// ParentEl.appendChild(divel);
+      </script>
+	</body>
+	
+</html>

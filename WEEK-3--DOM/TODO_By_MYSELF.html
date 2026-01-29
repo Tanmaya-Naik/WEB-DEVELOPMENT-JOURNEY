@@ -1,0 +1,30 @@
+
+<html>
+    <body>
+        <title>
+            Tanmay's Todo app
+        </title>
+        <div id="TodoContainer"></div>
+        <input type="text" placeholder="Write ur todo here...."></input>
+        <button onclick="addTodo()">Add Todo</button>
+    </body>
+    <script>
+        
+        let counter=1;
+        function deleteTodo(index){
+            const element=document.getElementById("todo-"+index);
+            element.parentNode.removeChild(element);
+        }
+        function addTodo(){
+            const getInput=document.querySelector("input");
+            const inputValue=getInput.value;
+
+            const newDiv=document.createElement("div");
+            newDiv.setAttribute("id","todo-"+counter);
+            newDiv.innerHTML="<div>"+counter +"-"+ inputValue +"</div><button onclick='deleteTodo("+counter+")'>✖️</button>";
+            document.querySelector("#TodoContainer").appendChild(newDiv);
+            counter=counter+1;
+
+        }
+    </script>
+</html>

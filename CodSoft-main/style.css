@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background: #f9fafb;
+  color: #333;
+}
+header {
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+.about, .skills, .projects, .Experience, .Achievement, .resume, .contact {
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+img {
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 10px auto;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.project {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+footer {
+  text-align: center;
+  background: #3b82f6;
+  color: white;
+  padding: 15px 0;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}

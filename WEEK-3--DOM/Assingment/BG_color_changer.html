@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>
+        Bg Color Changer
+        </title>
+
+        <style>
+
+           body {
+                    height: 100vh;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-bottom: 1000px; 
+                }
+
+            h1{
+                margin-top: 50px;
+            }
+            .addcolorsection{
+                margin-bottom:50px;
+            }
+            .addcolorsection input,
+            .addcolorsection button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+}
+        </style>
+    </head>
+
+    <body>
+        <h1>
+            BACKGROUND COLOR CHANGER
+        </h1>
+       
+    <div id="colorPanel">
+        <button style="background-color:purple ;">Purple</button>
+        <button style="background-color:red ;">Red</button>
+        <button style="background-color:green ;">Green</button>
+        <button style="background-color:blue ;">Blue</button>
+        <button style="background-color:yellow ;">yellow</button>
+        <button style="background-color:orange ;">Orange</button>
+        <button style="background-color:white ;">Default</button>
+    </div>
+
+    <br/><br/>
+    <div class="addcolorsection"> <input type="text" placeholder="Add new color">
+    <button id="addcolorbtn">Add color</button>
+    </div>
+   
+    <script>
+        //select all the buttons under controlpanel
+        const buttons=document.querySelectorAll("#colorPanel button");
+
+        buttons.forEach(button =>{
+            button.addEventListener("click",()=> {
+                document.body.style.backgroundColor=button.style.backgroundColor;
+
+            })
+        })
+
+        const input=document.querySelector("input");
+        const addButton=document.querySelector("#addcolorbtn");
+
+        addButton.addEventListener("click",()=>{
+            const colorvalue=input.value;
+            document.body.style.backgroundColor=colorvalue;
+        })
+    </script>
+    
+    
+
+    </body>
+</html>
